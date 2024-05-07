@@ -1,42 +1,29 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API-CRUD
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este é um projeto de API desenvolvido com Nest.js, utilizando DTOs (Data Transfer Objects) para manipulação de dados e Prisma como ORM (Object-Relational Mapping) para interagir com o banco de dados.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Pré-requisitos
 
-## Description
+Certifique-se de ter instalado na sua máquina:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Node.js (v18 ou superior)
+- npm
+- essa api usa o mysql mas você pode usar outro banco de dados suportado pelo Prisma.
 
-## Installation
+## Instalação
+
+1. Clone este repositório:
+2. Instale as dependências:
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Rodar a api com os seguintes comandos:
 
 ```bash
 # development
-$ npm run start
+$ npm run dev
 
 # watch mode
 $ npm run start:dev
@@ -45,7 +32,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testar aplicação digite os seguintes comandos no terminal:
 
 ```bash
 # unit tests
@@ -58,16 +45,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Configuração do Banco de Dados
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Esta API utiliza o Prisma como ORM para interagir com o banco de dados. Antes de iniciar a aplicação, certifique-se de configurar o arquivo .env na raiz do projeto com as credenciais do seu banco de dados. Um exemplo do arquivo .env pode ser encontrado abaixo:
 
-## Stay in touch
+DB_URL=postgresql://username:password@localhost:5432/database_name
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Após fazer qualquer alteração no banco de dados lembre de rodar o seguinte comandos:
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+```bash
+$ yarn prisma generate
+$ npx prisma generate
+```
