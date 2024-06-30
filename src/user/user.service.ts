@@ -6,7 +6,7 @@ import { UpdateUserPatchDto } from './dto/upadte-patch-dto';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async create(data: UserCreateDto) {
     return this.prisma.user.create({
@@ -74,7 +74,9 @@ export class UserService {
   }
 
   async exists(id: number) {
-    if (!(await this.show(id))) {
+    if (!(await this.prisma.user.count({
+      where: { id },
+    }))) {
       throw new NotFoundException(`User with id ${id} not found`);
     }
   }
